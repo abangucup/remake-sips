@@ -63,5 +63,9 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        // definisikan nama role yang akan digunakan pada middleware bisa ganti 'role' dengan nama apapun tapi ini sebagai patokan anda.
+        // semisal anda menggunakan level maka level yang harus di gunakan seterusnya.
+        'role' => \App\Http\Middleware\CheckRole::class,
     ];
 }
