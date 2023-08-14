@@ -29,7 +29,7 @@
 
                     <div class="col-md-6 img-card-side bg-custom">
                         <div class="card-body img">
-                            <img src="{{ asset('assets/auth/images/logo-p2pl.png') }}" alt="" class="w-50">
+                            <img src="{{ asset('assets/frontend/images/png/logo_p2pl.png') }}" alt="" class="w-50">
                             <footer class="text-center">
                                 <p>
                                     <a href="https://www.facebook.com/profile.php?id=100090648413031"

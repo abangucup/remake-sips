@@ -106,26 +106,6 @@
                     </div>
                 </li>
                 <li class="dropdown pc-h-item">
-                    <a class="pc-head-link head-link-primary dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown"
-                        href="index.html#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="ti ti-language"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
-                        <a href="index.html#!" class="dropdown-item">
-                            <span>English <small>(UK)</small></span>
-                        </a>
-                        <a href="index.html#!" class="dropdown-item">
-                            <span>français <small>(French)</small></span>
-                        </a>
-                        <a href="index.html#!" class="dropdown-item">
-                            <span>Română <small>(Romanian)</small></span>
-                        </a>
-                        <a href="index.html#!" class="dropdown-item">
-                            <span>中国人 <small>(Chinese)</small></span>
-                        </a>
-                    </div>
-                </li>
-                <li class="dropdown pc-h-item">
                     <a class="pc-head-link head-link-secondary dropdown-toggle arrow-none me-0"
                         data-bs-toggle="dropdown" href="index.html#" role="button" aria-haspopup="false"
                         aria-expanded="false">
@@ -256,20 +236,7 @@
                             <hr>
                             <div class="profile-notification-scroll position-relative"
                                 style="max-height: calc(100vh - 280px)">
-                                <div class="upgradeplan-block bg-light-warning rounded">
-                                    <h4>Explore full code</h4>
-                                    <p class="text-muted">Buy now to get full access of code files</p>
-                                    <a href="https://codedthemes.com/item/berry-bootstrap-5-admin-template/"
-                                        target="_blank" class="btn btn-warning">Buy Now</a>
-                                </div>
-                                <hr>
                                 <div class="settings-block bg-light-primary rounded">
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch"
-                                            id="flexSwitchCheckDefault">
-                                        <label class="form-check-label" for="flexSwitchCheckDefault">Start DND
-                                            Mode</label>
-                                    </div>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch"
                                             id="flexSwitchCheckChecked" checked>
@@ -286,10 +253,11 @@
                                     <i class="ti ti-user"></i>
                                     <span>Social Profile</span>
                                 </a>
-                                <a href="../pages/login-v1.html" class="dropdown-item">
-                                    <i class="ti ti-logout"></i>
-                                    <span>Logout</span>
-                                </a>
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <button class="dropdown-item"><i
+                                            class="ti ti-logout"></i><span>Logout</span></button>
+                                </form>
                             </div>
                         </div>
                     </div>

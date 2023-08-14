@@ -7,9 +7,6 @@
     <div class="col-md-9">
         <form action="{{ route('login') }}" method="post">
             @csrf
-            @error('status')
-            {{ $status }}
-            @enderror
             <div class="card-body">
                 <div class="">
                     <h1 class="mb-3 f-w-700">Login</h1>
@@ -21,19 +18,25 @@
                         <div class="input-group">
                             <span class="input-group-text"><i data-feather="user"></i></span>
                             <input type="text" id="username" class="form-control" name="username"
-                                value="{{ old('username') }}" placeholder="Masukan Username" required>
+                                value="{{ old('username') }}" placeholder="Masukan Username">
                         </div>
+                        @error('username')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="password" class="form-label f-w-600">Password</label>
                         <div class="input-group">
                             <span class="input-group-text"><i data-feather="lock"></i></span>
                             <input type="password" id="password" class="form-control" name="password"
-                                placeholder="Masukan Password" value="{{ old('password') }}" required>
+                                placeholder="Masukan Password" value="{{ old('password') }}">
                             <span class="input-group-text" id="togglePassword">
                                 <i data-feather="eye"></i>
                             </span>
                         </div>
+                        @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
                     </div>
                     <div class="form-group my-2">
                         <div class="float-end">

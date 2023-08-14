@@ -23,6 +23,7 @@ class AuthController extends Controller
         if (Auth::attempt($credential)) {
             $role = Auth::user()->role;
             if ($role === 'admin') {
+                Alert::success('Welcome', 'Anda masuk sebagai admin');
                 return redirect()->route('admin');
             }
         }
@@ -30,5 +31,14 @@ class AuthController extends Controller
         Alert::toast('Username atau Password salah', 'error');
 
         return back()->withInput($credential);
+    }
+
+
+    public function logout()
+    {
+        Auth::logout();
+
+        Alert::info('Goodbye', 'Sampai jumpa lagi');
+        return redirect()->route('home');
     }
 }

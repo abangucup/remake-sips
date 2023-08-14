@@ -27,4 +27,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:admin'], 'prefix' => 'admin'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboardForAdmin'])->name('admin');
     });
+
+    Route::match(['get', 'post'], 'logout', [AuthController::class, 'logout'])->name('logout');
 });

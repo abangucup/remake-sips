@@ -1,4 +1,4 @@
-<link rel="icon" href="{{ asset('assets/auth/images/favicon.svg') }}" type="image/x-icon">
+<link rel="icon" href="{{ asset('assets/frontend/images/ico/logo_kesehatan.ico') }}" type="image/x-icon">
 
 <!-- font css -->
 <link rel="stylesheet" href="{{ asset('assets/auth/fonts/feather.css') }}">
