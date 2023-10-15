@@ -13,4 +13,4 @@
 
 <link rel="stylesheet" href="{{ asset('assets/backend/css/style.css') }}" id="main-style-link">
 <link rel="stylesheet" href="{{ asset('assets/backend/css/style-preset.css') }}" id="preset-style-link">
-<link rel="stylesheet" href="{{ asset('assets/backend/css/my.css') }}" id="preset-style-link">
+<link rel="stylesheet" href="{{ asset('assets/backend/css/my.css') }}">

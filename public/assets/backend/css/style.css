@@ -23787,7 +23787,9 @@ pre[class*=language-]>code {
     padding: 24px 20px 10px !important;
     text-transform: capitalize;
     position: relative;
-    font-size: 14px;
+    /* font-size: 14px; */
+    /* ganti */
+    font-size: 18px;
     font-weight: 500
 }
 
@@ -23824,7 +23826,9 @@ pre[class*=language-]>code {
 }
 
 .pc-sidebar .pc-micon i {
-    font-size: 18px
+    /* font-size: 18px */
+    /* ganti */
+    font-size: 22px;
 }
 
 .pc-sidebar .pc-micon i.material-icons-two-tone {
@@ -23843,7 +23847,9 @@ pre[class*=language-]>code {
     padding: 11px 20px;
     color: var(--pc-sidebar-color);
     border-radius: 8px;
-    font-size: 14px;
+    /* font-size: 14px; */
+    /* ganti */
+    font-size: 16px;
     font-weight: 400
 }
 
