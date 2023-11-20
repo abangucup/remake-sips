@@ -22,23 +22,70 @@
 
     @include('sweetalert::alert')
 
-    @include('backend.template.partials.header')
-
-
-    @include('backend.template.partials.sidebar')
-
-
-    <div class="pc-container">
-        <div class="pc-content">
-
-
-
-            @yield('content')
-
+    {{-- Loader --}}
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
         </div>
     </div>
 
-    @include('backend.template.partials.footer')
+    <div id="main-wrapper">
+        <!--**********************************
+              Nav header start
+          ***********************************-->
+        @include('backend.template.partials.navbar')
+        <!--**********************************
+              Nav header end
+          ***********************************-->
+
+        <!--**********************************
+              Header start
+          ***********************************-->
+        @include('backend.template.partials.header')
+        <!--**********************************
+              Header end ti-comment-alt
+          ***********************************-->
+
+        <!--**********************************
+              Sidebar start
+          ***********************************-->
+        @include('backend.template.partials.sidebar')
+        <!--**********************************
+              Sidebar end
+          ***********************************-->
+
+        <!--**********************************
+              Content body start
+          ***********************************-->
+        <div class="content-body">
+            <!-- row -->
+            <div class="container-fluid">
+
+                @yield('content')
+            </div>
+        </div>
+        <!--**********************************
+              Content body end
+          ***********************************-->
+
+        <!--**********************************
+              Footer start
+          ***********************************-->
+        @include('backend.template.partials.footer')
+        <!--**********************************
+              Footer end
+          ***********************************-->
+
+        <!--**********************************
+             Support ticket button start
+          ***********************************-->
+
+        <!--**********************************
+             Support ticket button end
+          ***********************************-->
+    </div>
 
     @include('backend.template.partials.script')
 </body>

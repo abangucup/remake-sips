@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
 
 <head>
     <meta charset="UTF-8">
@@ -17,32 +17,16 @@
 
 </head>
 
-<body>
+<body class="h-100">
 
     @include('sweetalert::alert')
 
-    <div class="auth-wrapper auth-v3">
-        <div class="auth-content">
-            <div class="card">
-                <div class="row align-items-stretch text-center">
-                    @yield('content')
-
-                    <div class="col-md-6 img-card-side bg-custom">
-                        <div class="card-body img">
-                            <img src="{{ asset('assets/frontend/images/png/logo_p2pl.png') }}" alt="" class="w-50">
-                            <footer class="text-center">
-                                <p>
-                                    <a href="https://www.facebook.com/profile.php?id=100090648413031"
-                                        class="text-white mx-3 f-w-600"><i data-feather="facebook"
-                                            class="mx-3"></i>Pengendalian
-                                        Penyakit dan Penyehatan Lingkungan</a>
-                                </p>
-                                <p>
-                                    <a href="https://www.facebook.com/p2plkota" class="text-white f-w-600"><i
-                                            data-feather="instagram" class="mx-3"></i>@p2plkota</a>
-                                </p>
-                            </footer>
-                        </div>
+    <div class="authincation front-end h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-12 h-100 d-flex align-items-center">
+                    <div class="authincation-content style-1">
+                        @yield('content')
                     </div>
                 </div>
             </div>

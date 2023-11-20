@@ -21,16 +21,32 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credential)) {
-            $role = Auth::user()->role;
+            $role = Auth::user()->role->level;
             if ($role === 'admin') {
-                Alert::success('Welcome', 'Anda masuk sebagai admin');
                 return redirect()->route('admin');
+            } elseif ($role === 'pengelola') {
+                return redirect()->route('pengelola');
+            } elseif ($role === 'sopir') {
+                return redirect()->route('sopir');
+            } else {
+                return redirect()->route('pengguna');
             }
+            Alert::success('Welcome', 'Anda masuk sebagai ' . $role);
         }
 
         Alert::toast('Username atau Password salah', 'error');
 
         return back()->withInput($credential);
+    }
+
+    public function register()
+    {
+        return view('auth.register');
+    }
+
+    public function storeRegister(Request $request)
+    {
+        dd($request->all());
     }
 
 

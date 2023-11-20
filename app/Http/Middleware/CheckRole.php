@@ -24,7 +24,7 @@ class CheckRole
 
         // buat variable role
         // disesuaikan dengan database
-        $role = Auth::user()->role;
+        $role = Auth::user()->role->level;
 
         // cek jika role tidak sama dengan role yang ada
         if ($role !== $roles) {
