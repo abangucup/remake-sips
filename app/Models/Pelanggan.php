@@ -10,18 +10,29 @@ class Pelanggan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'desa_id',
+        'lokasi_id',
         'user_id',
         'no_register',
+        'tarif_id'
     ];
 
-    public function desa()
+    public function lokasi()
     {
-        return $this->belongsTo(Desa::class);
+        return $this->belongsTo(Lokasi::class);
     }
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function pembayarans()
+    {
+        return $this->hasMany(Pembayaran::class);
+    }
+
+    public function tarif()
+    {
+        return $this->belongsTo(Tarif::class);
     }
 }

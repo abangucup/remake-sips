@@ -10,8 +10,8 @@ class Jalur extends Model
     use HasFactory;
 
     protected $fillable = [
-        'lokasi_id',
         'kenderaan_id',
+        'lokasi_id',
         'hari'
     ];
 

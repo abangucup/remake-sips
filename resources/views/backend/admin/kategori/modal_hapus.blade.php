@@ -1,9 +1,9 @@
 {{-- Modal Hapus --}}
-<div id="hapusData-{{ $desa->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="hapusData"
+<div id="hapusData-{{ $kategori->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="hapusData"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('desa.destroy', $desa->id) }}" method="post">
+            <form action="{{ route('kategori.destroy', $kategori->id) }}" method="post">
                 @csrf
                 @method('DELETE')
                 <div class="modal-header">
@@ -14,7 +14,7 @@
                 </div>
                 <div class="modal-body">
                     <p class="fw-bold text-danger">Apakah anda yakin ingin menghapus data
-                        {{ $desa->nama_desa }} ??!!!</p><br>
+                        {{ $kategori->kategori_sampah }} ??!!!</p><br>
                     <p>Tekan "Ya" untuk hapus dan "Tidak" untuk membatalkan</p>
                 </div>
                 <div class="modal-footer">

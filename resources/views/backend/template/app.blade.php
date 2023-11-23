@@ -88,6 +88,8 @@
     </div>
 
     @include('backend.template.partials.script')
+
+    @stack('script')
 </body>
 
 </html>

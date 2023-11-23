@@ -18,10 +18,6 @@ class Desa extends Model
         return $this->hasMany(Pengelola::class);
     }
 
-    public function pelanggans()
-    {
-        return $this->hasMany(Pelanggan::class);
-    }
 
     public function lokasis()
     {

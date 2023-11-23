@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('jalurs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('lokasi_id')->constrained()->onDelete('restrict');
             $table->foreignId('kenderaan_id')->constrained()->onDelete('cascade');
+            $table->foreignId('lokasi_id')->constrained();
             $table->string('hari');
             $table->timestamps();
         });

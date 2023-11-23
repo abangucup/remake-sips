@@ -1,5 +1,5 @@
 <div class="nav-header">
-    <a href="index.html" class="brand-logo">
+    <a href="{{ route($user->role->level) }}" class="brand-logo">
         <img class="logo-abbr" src="{{ asset('assets/images/icon-bank-sampah.png') }}" alt="" />
         <h3 class="brand-title">SIPS</h3>
     </a>

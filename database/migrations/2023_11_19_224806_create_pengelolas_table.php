@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pengelolas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('desa_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('restrict');
             $table->enum('status', ['active', 'disabled']);
             $table->timestamps();
         });

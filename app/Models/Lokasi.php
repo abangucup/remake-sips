@@ -23,4 +23,9 @@ class Lokasi extends Model
     {
         return $this->hasMany(Jalur::class);
     }
+
+    public function pelanggans()
+    {
+        return $this->hasMany(Pelanggan::class);
+    }
 }

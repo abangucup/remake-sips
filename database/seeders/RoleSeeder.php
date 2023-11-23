@@ -17,18 +17,22 @@ class RoleSeeder extends Seeder
     {
         $roles = [
             [
+                // 1
                 'level' => 'admin',
                 'name' => 'P3B3K',
             ],
             [
+                // 2
                 'level' => 'pengelola',
                 'name' => 'Admin Desa',
             ],
             [
+                // 3
                 'level' => 'sopir',
                 'name' => 'Petugas Pengangkut',
             ],
             [
+                // 4
                 'level' => 'pengguna',
                 'name' => 'Pelanggan',
             ],

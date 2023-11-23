@@ -15842,7 +15842,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu>li>a {
   font-size: 16px;
   padding: 14px 35px;
-  color: #969ba0;
+  /* mances */
+  color: #000;
   -webkit-transition: all 0.5s;
   -ms-transition: all 0.5s;
   transition: all 0.5s;
@@ -15857,7 +15858,8 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu>li>a i {
-  color: #969ba0;
+  /* mances */
+  color: #000;
 }
 
 [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu>li>a:before {

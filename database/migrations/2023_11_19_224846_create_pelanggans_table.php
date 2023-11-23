@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('desa_id')->constrained()->onDelete('cascade');
+            $table->foreignId('lokasi_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tarif_id')->constrained()->onDelete('restrict');
             $table->string('no_register')->unique();
             $table->timestamps();
         });

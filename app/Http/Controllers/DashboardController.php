@@ -38,12 +38,50 @@ class DashboardController extends Controller
 
     public function dashboardForPengelola()
     {
-        return view('backend.pengelola.dashboard');
+        $totalDesa = Desa::count();
+        $totalPengelola = Pengelola::where('desa_id', auth()->user()->pengelola->desa_id)->count();
+        $totalSopir = Sopir::count();
+        $totalKenderaan = Kenderaan::count();
+        $totalLokasi = Lokasi::count();
+        // $totalPelanggan = Pelanggan::count();
+        $totalPelanggan = Pelanggan::with('lokasi.desa')
+            ->whereHas('lokasi.desa', function ($query) {
+                $query->where('id', auth()->user()->pengelola->desa_id);
+            })->count();
+        $totalUser = User::count();
+        $totalJalur = Jalur::count();
+        return view('backend.pengelola.dashboard', compact([
+            'totalDesa',
+            'totalPengelola',
+            'totalSopir',
+            'totalKenderaan',
+            'totalLokasi',
+            'totalPelanggan',
+            'totalUser',
+            'totalJalur',
+        ]));
     }
 
     public function dashboardForSopir()
     {
-        return view('backend.sopir.dashboard');
+        $totalDesa = Desa::count();
+        $totalPengelola = Pengelola::count();
+        $totalSopir = Sopir::count();
+        $totalKenderaan = Kenderaan::count();
+        $totalLokasi = Lokasi::count();
+        $totalPelanggan = Pelanggan::count();
+        $totalUser = User::count();
+        $totalJalur = Jalur::count();
+        return view('backend.sopir.dashboard', compact([
+            'totalDesa',
+            'totalPengelola',
+            'totalSopir',
+            'totalKenderaan',
+            'totalLokasi',
+            'totalPelanggan',
+            'totalUser',
+            'totalJalur',
+        ]));
     }
 
     public function dashboardForPelanggan()

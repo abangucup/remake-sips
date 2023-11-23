@@ -1,6 +1,6 @@
 @extends('backend.template.app')
 
-@section('title', 'Admin - Dashboard')
+@section('title', 'Desa')
 
 @section('content')
 <div class="row page-titles">

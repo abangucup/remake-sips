@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             BiodataSeeder::class,
             UserSeeder::class,
+            DesaSeeder::class,
+            PengelolaSeeder::class,
         ]);
     }
 }

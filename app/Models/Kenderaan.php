@@ -30,4 +30,14 @@ class Kenderaan extends Model
     {
         return $this->hasMany(Jalur::class);
     }
+
+    public function lokasis()
+    {
+        return $this->belongsToMany(Lokasi::class, Jalur::class);
+    }
+
+    public function timbangans()
+    {
+        return $this->hasMany(Timbangan::class);
+    }
 }

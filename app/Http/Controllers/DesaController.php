@@ -41,7 +41,7 @@ class DesaController extends Controller
         ]);
 
         if ($validasi->fails()) {
-            Alert::error('Error', 'Terjadi keselahan saat input data');
+            Alert::error('Error', 'Terjadi keselahan saat ubah data');
             return back();
         }
 

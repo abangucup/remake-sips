@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
+                // ID 1
                 'role_id' => 1,
                 'biodata_id' => 1,
                 'username' => 'p3b3k',
@@ -25,6 +26,7 @@ class UserSeeder extends Seeder
                 'email' => 'p3b3k@gmail.com',
             ],
             [
+                // ID 2
                 'role_id' => 2,
                 'biodata_id' => 2,
                 'username' => 'desa',
