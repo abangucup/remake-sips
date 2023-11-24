@@ -17,7 +17,6 @@ use App\Http\Controllers\SampahController;
 use App\Http\Controllers\SopirController;
 use App\Http\Controllers\TarifController;
 use App\Http\Controllers\TimbanganController;
-use FontLib\Table\Type\name;
 use Illuminate\Support\Facades\Route;
 
 // Bisa diakses siapa saja

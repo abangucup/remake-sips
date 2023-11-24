@@ -75,7 +75,7 @@
             </li>
             <li class="mm-{{ Request::is('sampah') ? 'active' : '' }}">
                 <a class="" href="{{ route('sampah.index') }}">
-                    <i class="fa fa-map-signs"></i>
+                    <i class="fa fa-trash-alt"></i>
                     <span class="nav-text">Sampah</span>
                 </a>
             </li>
@@ -92,7 +92,7 @@
             </li>
             <li class="mm-{{ Request::is('laporan/jalur') ? 'active' : '' }}">
                 <a class="" href="{{ route('laporan.jalur') }}">
-                    <i class="fa fa-trash-alt"></i>
+                    <i class="fa fa-random"></i>
                     <span class="nav-text">Jalur Pengangkutan</span>
                 </a>
             </li>
