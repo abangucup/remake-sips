@@ -17,19 +17,33 @@
 
 </head>
 
-<body class="landing-page">
+<body id="bg">
 
     @include('sweetalert::alert')
+    <!-- Preloading  -->
+    <div id="loading-area" class="loading-page-1">
+        <div class="loader"></div>
+    </div>
 
-    @include('frontend.template.partials.navbar')
+    <div class="page-wraper">
 
+        @include('frontend.template.partials.header')
 
-    @yield('content')
+        <div class="page-content">
 
+            @yield('content')
+        </div>
 
-    @include('frontend.template.partials.footer')
+        @include('frontend.template.partials.footer')
+
+        <button class="scroltop icon-up" type="button">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+    </div>
 
     @include('frontend.template.partials.script')
+    @stack('script')
 
 </body>
 

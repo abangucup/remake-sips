@@ -21,6 +21,10 @@ use Illuminate\Support\Facades\Route;
 
 // Bisa diakses siapa saja
 Route::get('/', [FrontendController::class, 'home'])->name('home');
+Route::get('desa', [FrontendController::class, 'listDesa'])->name('list.desa');
+Route::get('jenis-kenderaan', [FrontendController::class, 'jenisKenderaan'])->name('jenis.kenderaan');
+Route::get('jalur-pelayanan', [FrontendController::class, 'jalurKenderaan'])->name('jalur.kenderaan');
+Route::get('sampah', [FrontendController::class, 'capaianSampah'])->name('capaian.sampah');
 
 // Hanya dapat di akses oleh tamu atau belum login
 Route::middleware('guest')->group(function () {

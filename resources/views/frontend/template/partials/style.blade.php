@@ -1,13 +1,17 @@
-<link rel="icon" href="{{ asset('assets/frontend/images/ico/logo_kesehatan.ico') }}" type="image/x-icon">
+<!-- Favicon icon -->
+<link rel="icon" type="image/png" href="{{ asset('assets/images/icon-bank-sampah.png') }}" />
 
-<link href="{{ asset('assets/frontend/css/animate.min.css') }}" rel="stylesheet" type="text/css">
+<!-- Stylesheet -->
+<link href="{{ asset('assets/frontend/vendor/animate/animate.css') }}" rel="stylesheet" />
+<link href="{{ asset('assets/frontend/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet" />
 
+<!-- Custom Stylesheet -->
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}" />
+<link class="skin" rel="stylesheet" href="{{ asset('assets/frontend/css/skin/skin-1.css') }}" />
 
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="{{ asset('assets/frontend/fonts/tabler-icons.min.css') }}">
-
-<link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}" id="main-style-link">
-<link rel="stylesheet" href="{{ asset('assets/frontend/css/style-preset.css') }}" id="preset-style-link">
-<link rel="stylesheet" href="{{ asset('assets/frontend/css/landing.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/frontend/css/my.css') }}">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />

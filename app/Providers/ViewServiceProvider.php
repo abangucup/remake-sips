@@ -26,7 +26,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['backend.template.app', 'backend.*.dashboard'], function ($view) {
+        View::composer(['backend.template.app', 'backend.*.dashboard', 'frontend.template.partials.header'], function ($view) {
             $user = User::findOrFail(Auth::user()->id);
             $view->with('user', $user);
         });
