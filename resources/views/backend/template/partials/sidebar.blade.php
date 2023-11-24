@@ -157,7 +157,7 @@
                 </a>
             </li>
 
-            @elseif ($user->role->level == 'pelanggan')
+            @elseif ($user->role->level == 'pengguna')
             <li class="mm-{{ Request::is('jenis-kenderaan') ? 'active' : '' }}">
                 <a class="" href="{{ route('jenis-kenderaan.index') }}">
                     <i class="fa fa-sliders-h"></i>

@@ -72,8 +72,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboardForSopir'])->name('sopir');
         Route::resource('timbangan', TimbanganController::class);
     });
-    Route::group(['middleware' => ['role:pelanggan'], 'prefix' => 'pelanggan'], function () {
-        Route::get('dashboard', [DashboardController::class, 'dashboardForPelanggan'])->name('pengguna');
+    Route::group(['middleware' => ['role:pengguna'], 'prefix' => 'pelanggan'], function () {
+        Route::get('dashboard', [DashboardController::class, 'dashboardForPengguna'])->name('pengguna');
     });
 
     Route::get('laporan/jalur', [LaporanController::class, 'laporanJalur'])->name('laporan.jalur');

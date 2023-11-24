@@ -84,8 +84,25 @@ class DashboardController extends Controller
         ]));
     }
 
-    public function dashboardForPelanggan()
+    public function dashboardForPengguna()
     {
-        return view('backend.pelanggan.dashboard');
+        $totalDesa = Desa::count();
+        $totalPengelola = Pengelola::count();
+        $totalSopir = Sopir::count();
+        $totalKenderaan = Kenderaan::count();
+        $totalLokasi = Lokasi::count();
+        $totalPelanggan = Pelanggan::count();
+        $totalUser = User::count();
+        $totalJalur = Jalur::count();
+        return view('backend.pelanggan.dashboard', compact([
+            'totalDesa',
+            'totalPengelola',
+            'totalSopir',
+            'totalKenderaan',
+            'totalLokasi',
+            'totalPelanggan',
+            'totalUser',
+            'totalJalur',
+        ]));
     }
 }
