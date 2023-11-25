@@ -60,6 +60,19 @@
 										<form action="{{ route('changeBiodata') }}" method="POST">
 											@csrf
 											<div class="row">
+
+												{{-- KHUSUS PENGELOLA --}}
+												@if ($user->role->level == 'pengelola')
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label class="form-label">Desa</label>
+														<input type="text" class="form-control" value={{
+															$user->pengelola->desa->nama_desa }} disabled/>
+													</div>
+												</div>
+												@endif
+												{{-- END KHUSUS PENGELOLA --}}
+
 												<div class="col-sm-6">
 													<div class="form-group">
 														<label class="form-label">Nama Lengkap</label>
@@ -110,6 +123,9 @@
 															required />
 													</div>
 												</div>
+
+												{{-- KHUSUS PELANGGAN --}}
+												@if ($user->role->level === 'pengguna')
 												<div class="col-sm-6">
 													<div class="form-group">
 														<label class="form-label">Lokasi Tempat Tinggal</label>
@@ -147,6 +163,9 @@
 														</select>
 													</div>
 												</div>
+												@endif
+												{{-- END KHUSUS PELANGGAN --}}
+
 												<button class="btn btn-primary" type="submit">
 													Simpan Perubahan
 												</button>

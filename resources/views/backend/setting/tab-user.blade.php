@@ -10,6 +10,9 @@
                     <form action="{{ route('changeAccount', $user->id) }}" method="POST">
                         @csrf
                         <div class="row">
+
+                            {{-- KHUSUS PELANGGAN --}}
+                            @if ($user->role->level === 'pengguna')
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label class="form-label">Nomor Register</label>
@@ -17,6 +20,9 @@
                                         disabled />
                                 </div>
                             </div>
+                            @endif
+                            {{-- END KHUSUS PELANGGAN --}}
+
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label class="form-label">Username</label>
