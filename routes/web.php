@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AkunController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DesaController;
@@ -78,5 +79,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('laporan/jalur', [LaporanController::class, 'laporanJalur'])->name('laporan.jalur');
 
+    // Pengaturan Akun
+    Route::prefix('akun')->group(function () {
+        Route::get('setting', [AkunController::class, 'setting'])->name('akun.setting');
+        Route::post('changeBiodata', [AkunController::class, 'changeBiodata'])->name('changeBiodata');
+        Route::post('changeAccount/{user}', [AkunController::class, 'changeAccount'])->name('changeAccount');
+        Route::post('changePassword/{user}', [AkunController::class, 'changePassword'])->name('changePassword');
+        Route::delete('deleteAccount/{user}', [AkunController::class, 'deleteAccount'])->name('deleteAccount');
+    });
     Route::match(['get', 'post'], 'logout', [AuthController::class, 'logout'])->name('logout');
 });

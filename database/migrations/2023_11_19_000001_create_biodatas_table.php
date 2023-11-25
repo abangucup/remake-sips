@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('biodatas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap');
-            $table->string('alamat');
-            $table->string('no_hp');
-            $table->enum('jenis_kelamin', ['l', 'p']);
+            $table->string('alamat')->nullable();
+            $table->string('no_hp')->nullable();
+            $table->enum('jenis_kelamin', ['l', 'p'])->nullable();
             $table->timestamps();
         });
     }

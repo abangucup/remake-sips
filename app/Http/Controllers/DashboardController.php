@@ -11,6 +11,8 @@ use App\Models\Pengelola;
 use App\Models\Sopir;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardController extends Controller
 {
@@ -86,6 +88,10 @@ class DashboardController extends Controller
 
     public function dashboardForPengguna()
     {
+        if (Auth::user()->pelanggan->lokasi_id == null) {
+            Alert::info('Perhatian', 'Lengkapi biodata anda');
+            return redirect()->route('akun.setting');
+        }
         $totalDesa = Desa::count();
         $totalPengelola = Pengelola::count();
         $totalSopir = Sopir::count();

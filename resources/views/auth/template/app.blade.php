@@ -23,13 +23,8 @@
 
     <div class="authincation front-end h-100">
         <div class="container h-100">
-            <div class="row justify-content-center h-100 align-items-center">
-                <div class="col-md-12 h-100 d-flex align-items-center">
-                    <div class="authincation-content style-1">
-                        @yield('content')
-                    </div>
-                </div>
-            </div>
+            @yield('content')
+
         </div>
     </div>
 

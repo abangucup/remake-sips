@@ -14,7 +14,7 @@
                             <img src="images/profile/pic1.jpg" width="20" alt="" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="app-profile.html" class="dropdown-item ai-icon">
+                            <a href="{{ route('akun.setting') }}" class="dropdown-item ai-icon">
                                 <i class="text-primary fa fa-user-cog"></i>
                                 <span class="ms-2">Profile </span>
                             </a>
