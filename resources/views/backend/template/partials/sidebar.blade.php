@@ -69,7 +69,7 @@
             </li>
             <li class="mm-{{ Request::is('jalur') ? 'active' : '' }}">
                 <a class="" href="{{ route('jalur.index') }}">
-                    <i class="fa fa-map-signs"></i>
+                    <i class="fa fa-random"></i>
                     <span class="nav-text">Jalur</span>
                 </a>
             </li>
@@ -92,7 +92,7 @@
             </li>
             <li class="mm-{{ Request::is('laporan/jalur') ? 'active' : '' }}">
                 <a class="" href="{{ route('laporan.jalur') }}">
-                    <i class="fa fa-random"></i>
+                    <i class="fa fa-map-signs"></i>
                     <span class="nav-text">Jalur Pengangkutan</span>
                 </a>
             </li>
@@ -102,17 +102,24 @@
                     <span class="nav-text">Pembayaran</span>
                 </a>
             </li>
+            {{-- <li class="mm-{{ Request::is('laporan/pembayaran') ? 'active' : '' }}">
+                <a class="" href="{{ route('laporan.pembayaran') }}">
+                    <i class="fa fa-money-bill-wave"></i>
+                    <span class="nav-text">Capaian Sampah</span>
+                </a>
+            </li> --}}
 
+            {{-- LEVEL PENGELOLA --}}
             @elseif ($user->role->level == 'pengelola')
             <li class="mm-{{ Request::is('pelanggan') ? 'active' : '' }}">
                 <a class="" href="{{ route('pelanggan.index') }}">
-                    <i class="fa fa-home"></i>
+                    <i class="fa fa-users"></i>
                     <span class="nav-text">Data Masyarakat</span>
                 </a>
             </li>
             <li class="mm-{{ Request::is('jenis-kenderaan') ? 'active' : '' }}">
                 <a class="" href="{{ route('jenis-kenderaan.index') }}">
-                    <i class="fa fa-sliders-h"></i>
+                    <i class="fa fa-money-check-alt"></i>
                     <span class="nav-text">Data Pembayaran</span>
                 </a>
             </li>
@@ -122,7 +129,7 @@
             </li>
             <li class="mm-{{ Request::is('laporan/jalur') ? 'active' : '' }}">
                 <a class="" href="{{ route('laporan.jalur') }}">
-                    <i class="fa fa-trash-alt"></i>
+                    <i class="fa fa-random"></i>
                     <span class="nav-text">Jalur Pengangkutan</span>
                 </a>
             </li>
@@ -139,10 +146,11 @@
                 </a>
             </li>
 
+            {{-- LEVEL SOPIR --}}
             @elseif ($user->role->level == 'sopir')
             <li class="mm-{{ Request::is('timbangan') ? 'active' : '' }}">
                 <a class="" href="{{ route('timbangan.index') }}">
-                    <i class="fa fa-home"></i>
+                    <i class="fa fa-balance-scale"></i>
                     <span class="nav-text">Data Timbangan</span>
                 </a>
             </li>
@@ -152,15 +160,16 @@
             </li>
             <li class="mm-{{ Request::is('laporan/jalur') ? 'active' : '' }}">
                 <a class="" href="{{ route('laporan.jalur') }}">
-                    <i class="fa fa-trash-alt"></i>
+                    <i class="fa fa-random"></i>
                     <span class="nav-text">Jalur Pengangkutan</span>
                 </a>
             </li>
 
+            {{-- LEVEL PENGGUNA --}}
             @elseif ($user->role->level == 'pengguna')
             <li class="mm-{{ Request::is('jenis-kenderaan') ? 'active' : '' }}">
                 <a class="" href="{{ route('jenis-kenderaan.index') }}">
-                    <i class="fa fa-sliders-h"></i>
+                    <i class="fa fa-money-check-alt"></i>
                     <span class="nav-text">Data Pembayaran</span>
                 </a>
             </li>
@@ -170,7 +179,7 @@
             </li>
             <li class="mm-{{ Request::is('laporan/jalur') ? 'active' : '' }}">
                 <a class="" href="{{ route('laporan.jalur') }}">
-                    <i class="fa fa-trash-alt"></i>
+                    <i class="fa fa-random"></i>
                     <span class="nav-text">Jalur Pengangkutan</span>
                 </a>
             </li>
@@ -181,6 +190,16 @@
                 </a>
             </li>
             @endif
+
+            <li>
+                <a class="mt-3">Kembali</a>
+            </li>
+            <li class="mm-{{ Request::is('/') ? 'active' : '' }}">
+                <a class="" href="{{ route('home') }}">
+                    <i class="fa fa-home"></i>
+                    <span class="nav-text">Home</span>
+                </a>
+            </li>
 
         </ul>
     </div>

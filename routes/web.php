@@ -58,11 +58,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('sopir', SopirController::class);
         Route::resource('jalur', JalurController::class);
         Route::resource('sampah', SampahController::class);
-
-        // Laporan
-        Route::get('laporan/user', [LaporanController::class, 'laporanUser'])->name('laporan.user');
-        Route::get('laporan/pembyaran', [LaporanController::class, 'laporanPembayaran'])->name('laporan.pembayaran');
-        Route::post('laporan/jalur/cetak', [LaporanController::class, 'cetakLaporanJalur'])->name('cetak.jalur');
     });
     Route::group(['middleware' => ['role:pengelola'], 'prefix' => 'pengelola'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboardForPengelola'])->name('pengelola');
@@ -77,7 +72,15 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboardForPengguna'])->name('pengguna');
     });
 
+    // LAPORAN VIEW
+    Route::get('laporan/user', [LaporanController::class, 'laporanUser'])->name('laporan.user');
     Route::get('laporan/jalur', [LaporanController::class, 'laporanJalur'])->name('laporan.jalur');
+    Route::get('laporan/pembayaran', [LaporanController::class, 'laporanPembayaran'])->name('laporan.pembayaran');
+
+    // CETAK
+    Route::get('laporan/user/cetak', [LaporanController::class, 'cetakLaporanUser'])->name('cetak.user');
+    Route::post('laporan/jalur/cetak', [LaporanController::class, 'cetakLaporanJalur'])->name('cetak.jalur');
+    Route::get('laporan/pembayaran/cetak', [LaporanController::class, 'cetakLaporanPembayaran'])->name('cetak.pembayaran');
 
     // Pengaturan Akun
     Route::prefix('akun')->group(function () {

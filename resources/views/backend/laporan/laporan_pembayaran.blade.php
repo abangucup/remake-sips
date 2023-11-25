@@ -12,10 +12,9 @@
             <a href="#">Pembayaran</a>
         </li>
         <div class="ms-auto text-end">
-            <button class="btn btn-primary btn-sm sharp" data-bs-toggle="modal" data-bs-target="#tambahData"><i
-                    class="fa fa-plus"></i></button>
+            <a href="{{ route('cetak.pembayaran') }}" class="btn btn-outline-danger btn-sm sharp"><i
+                    class="fa fa-print me-2"></i>Cetak Laporan</a>
         </div>
-
     </ol>
 </div>
 

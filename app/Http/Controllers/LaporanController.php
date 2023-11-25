@@ -40,12 +40,20 @@ class LaporanController extends Controller
     }
 
     // FUNGSI CETAK
-    public function cetakUser()
+    public function cetakLaporanUser()
     {
+        $users = User::all();
+        $pdf = Pdf::loadView('backend.laporan.cetak.cetak_user', compact('users'))->setPaper('A4', 'landscape');
+
+        return $pdf->stream('Laporan Data User ' . Carbon::now()->isoFormat('LLLL') . '.pdf');
     }
 
-    public function cetakPembayaran()
+    public function cetakLaporanPembayaran()
     {
+        $pembayarans = Pembayaran::all();
+        $pdf = Pdf::loadView('backend.laporan.cetak.cetak_pembayaran', compact('pembayarans'))->setPaper('A4', 'landscape');
+
+        return $pdf->stream('Laporan Pembayaran ' . Carbon::now()->isoFormat('LLLL') . '.pdf');
     }
 
 
