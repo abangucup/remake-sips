@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Desa;
+use App\Models\Jalur;
 use App\Models\Jenis;
 use App\Models\Kategori;
+use App\Models\Kenderaan;
 use App\Models\Pelanggan;
 
 class FrontendController extends Controller
@@ -16,20 +19,33 @@ class FrontendController extends Controller
         return view('frontend.home', compact('jenisKenderaan', 'pelanggans', 'kategoris'));
     }
 
-    public function jenisKenderaan()
+    public function listKenderaan()
     {
-        $jenisKenderaan = Jenis::all();
-        return view('frontend.jenis', compact('jenisKenderaan'));
+        $kenderaans = Kenderaan::paginate(6);
+        return view('frontend.kenderaan', compact('kenderaans'));
+    }
+
+    public function detailKenderaan(Kenderaan $kenderaan)
+    {
+        return view('frontend.detail-kenderaan', compact('kenderaan'));
     }
 
     public function jalurKenderaan()
     {
-        return view('frontend.jalur');
+        $jenisKenderaan = Jenis::with('kenderaans')->get();
+        return view('frontend.jalur', compact('jenisKenderaan'));
     }
 
     public function listDesa()
     {
-        return view('frontend.desa');
+        $desas = Desa::paginate(6);
+        return view('frontend.desa', compact('desas'));
+    }
+
+    public function detailDesa(Desa $desa)
+    {
+        $lokasis = $desa->lokasis()->paginate(6);
+        return view('frontend.detail-desa', compact('desa', 'lokasis'));
     }
 
     public function capaianSampah()

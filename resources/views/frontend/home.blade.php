@@ -134,7 +134,7 @@
             </div>
             <div class="text-center text-xl-end col-xl-5">
                 <a class="btn btn-light btn-lg wow fadeInUp" data-wow-delay="0.3s"
-                    href="{{ route('jenis.kenderaan') }}">Lihat Kenderaan <i
+                    href="{{ route('list.kenderaan') }}">Lihat Kenderaan <i
                         class="fa-solid fa-circle-arrow-right"></i></a>
             </div>
         </div>

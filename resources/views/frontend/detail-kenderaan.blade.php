@@ -1,21 +1,22 @@
 @extends('frontend.template.app')
 
-@section('title', 'Jalur Kenderaan')
+@section('title', 'Kenderaan '. $kenderaan->nomor_polisi)
 
 @section('content')
 
 <!-- Banner  -->
 <div class="dz-bnr-inr dz-bnr-inr-sm text-center overlay-gradient-dark"
-    style="background-image: url({{ asset('assets/images/lokasi_sampah.png') }});">
+    style="background-image: url({{ asset('assets/images/banner_kenderaan.png') }});">
     <div class="container">
         <div class="dz-bnr-inr-entry">
-            <h1>Jalur Kenderaan</h1>
+            <h1>Detail {{ $kenderaan->nama_kenderaan . ' - '.$kenderaan->nomor_polisi }}</h1>
             <!-- Breadcrumb Row -->
             <nav aria-label="breadcrumb" class="breadcrumb-row">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="#">Jalur</a>
-                    </li>
+                    <li class="breadcrumb-item"><a href="{{ route('list.kenderaan') }}">Kenderaan</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $kenderaan->nama_kenderaan. ' -
+                        '.$kenderaan->nomor_polisi }}</li>
                 </ul>
             </nav>
             <!-- Breadcrumb Row End -->
@@ -27,12 +28,6 @@
 <!-- Blog Grid Starts -->
 <section class="content-inner position-relative">
     <div class="container">
-        @foreach ($jenisKenderaan as $jenis)
-
-        <h2 class="title wow fadeInUp" data-wow-delay="0.2s"
-            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-            Jenis Kenderaan {{ $jenis->jenis_kenderaan }}
-        </h2>
         <div class="row shop-grid-row style-4 m-b60">
             <div class="col">
                 <div class="dz-box row align-items-center">
@@ -51,7 +46,7 @@
                             <div class="tab-content">
                                 <div id="graphic-design-1" class="tab-pane show active">
                                     <table class="table border shop-overview">
-                                        {{-- <tr>
+                                        <tr>
                                             <th>Nama Kenderaan</th>
                                             <td>{{ $kenderaan->nama_kenderaan }}</td>
                                         </tr>
@@ -66,7 +61,7 @@
                                         <tr>
                                             <th>Jumlah Lokasi</th>
                                             <td>{{ $kenderaan->lokasis->unique()->count() }} Lokasi</td>
-                                        </tr> --}}
+                                        </tr>
                                     </table>
                                 </div>
                             </div>
@@ -78,10 +73,10 @@
 
         <h2 class="title wow fadeInUp" data-wow-delay="0.2s"
             style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-            {{-- Jalur lokasi yang dilalui {{ $kenderaan->nama_kenderaan. ' - '.$kenderaan->nomor_polisi }} --}}
+            Jalur lokasi yang dilalui {{ $kenderaan->nama_kenderaan. ' - '.$kenderaan->nomor_polisi }}
         </h2>
         <div class="row">
-            {{-- @foreach ($kenderaan->jalurs->groupBy('hari') as $hari => $jalurs)
+            @foreach ($kenderaan->jalurs->groupBy('hari') as $hari => $jalurs)
             <div class="col-xl-4 col-md-6 m-b30">
                 <div class="dz-card style-1 overlay-shine wow fadeInUp" data-wow-delay="0.1s">
                     <div class="dz-info">
@@ -102,12 +97,9 @@
                     </div>
                 </div>
             </div>
-            @endforeach --}}
+            @endforeach
 
         </div>
-
-        @endforeach
-
     </div>
 </section>
 

@@ -23,7 +23,9 @@ use Illuminate\Support\Facades\Route;
 // Bisa diakses siapa saja
 Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::get('desa', [FrontendController::class, 'listDesa'])->name('list.desa');
-Route::get('jenis-kenderaan', [FrontendController::class, 'jenisKenderaan'])->name('jenis.kenderaan');
+Route::get('desa/{desa}', [FrontendController::class, 'detailDesa'])->name('detail.desa');
+Route::get('kenderaan', [FrontendController::class, 'listKenderaan'])->name('list.kenderaan');
+Route::get('kenderaan/{kenderaan}', [FrontendController::class, 'detailKenderaan'])->name('detail.kendearan');
 Route::get('jalur-pelayanan', [FrontendController::class, 'jalurKenderaan'])->name('jalur.kenderaan');
 Route::get('sampah', [FrontendController::class, 'capaianSampah'])->name('capaian.sampah');
 

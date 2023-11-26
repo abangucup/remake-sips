@@ -23,4 +23,9 @@ class Desa extends Model
     {
         return $this->hasMany(Lokasi::class);
     }
+
+    public function pelanggans()
+    {
+        return $this->hasManyThrough(Pelanggan::class, Lokasi::class);
+    }
 }

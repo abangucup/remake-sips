@@ -1,20 +1,20 @@
 @extends('frontend.template.app')
 
-@section('title', 'Desa')
+@section('title', 'Kenderaan')
 
 @section('content')
 
 <!-- Banner  -->
 <div class="dz-bnr-inr dz-bnr-inr-sm text-center overlay-gradient-dark"
-    style="background-image: url({{ asset('assets/images/desa.png') }});">
+    style="background-image: url({{ asset('assets/images/banner_kenderaan.png') }});">
     <div class="container">
         <div class="dz-bnr-inr-entry">
-            <h1>Data Desa</h1>
+            <h1>Data Kenderaan</h1>
             <!-- Breadcrumb Row -->
             <nav aria-label="breadcrumb" class="breadcrumb-row">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Desa</li>
+                    <li class="breadcrumb-item active" aria-current="page">Kenderaan</li>
                 </ul>
             </nav>
             <!-- Breadcrumb Row End -->
@@ -27,22 +27,26 @@
 <section class="content-inner position-relative">
     <div class="container">
         <div class="row">
-            @foreach ($desas as $desa)
+            @foreach ($kenderaans as $kenderaan)
 
             <div class="col-xl-4 col-md-6 m-b30">
                 <div class="dz-card style-1 overlay-shine wow fadeInUp" data-wow-delay="0.1s">
                     <div class="dz-info">
                         <div class="dz-meta">
-                            <a href="{{ route('detail.desa', $desa->id) }}"><img
-                                    src="{{ asset('assets/images/desa.png') }}" alt=""></a>
+                            <a href="{{ route('detail.kendearan', $kenderaan->id) }}"><img
+                                    src="{{ asset('assets/images/kenderaan_pengangkut.png') }}" alt=""></a>
                         </div>
-                        <h5 class="dz-title"><a href="{{ route('detail.desa', $desa->id) }}">{{ $desa->nama_desa }}</a>
-                        </h5>
-                        <p>Desa {{ $desa->nama_desa }} merupakan salah satu desa yang ada di marisa. desa ini memiliki
-                            {{ $desa->lokasis->count() }} Lokasi dengan jumlah masyarakat yang aktif membayar sekitar {{
-                            $desa->pelanggans->count() }} Orang. desa ini juga memiliki {{ $desa->pengelolas->count() }}
-                            Pengelola / Operator. Untuk jelasnya cek detail desa</p>
-                        <a class="btn btn-primary " href="{{ route('detail.desa', $desa->id) }}">Detail<span><i
+                        <h5 class="dz-title"><a href="{{ route('detail.kendearan', $kenderaan->id) }}">{{
+                                $kenderaan->nama_kenderaan.' -
+                                '.$kenderaan->nomor_polisi }}</a></h5>
+                        <p>Kenderaan ini adalah jenis kenderaan <b>{{ $kenderaan->jenis->jenis_kenderaan }}</b> yang
+                            memiliki
+                            sopir <b>{{ $kenderaan->sopir->user->biodata->nama_lengkap }}</b> dengan jalur yang di lalui
+                            sebanyak {{
+                            $kenderaan->jalurs->unique('lokasi_id')->count() }} lokasi. Untuk jelasnya cek detail
+                            kenderaan</p>
+                        <a class="btn btn-primary "
+                            href="{{ route('detail.kendearan', $kenderaan->id) }}">Detail<span><i
                                     class="fa-solid fa-circle-arrow-right"></i></span></a>
                     </div>
                 </div>
@@ -55,7 +59,7 @@
 
                 <nav aria-label="Blog Pagination">
                     <div class="pagination style-1 text-center wow fadeInUp" data-wow-delay="0.4s">
-                        {{ $desas->links() }}
+                        {{ $kenderaans->links() }}
                     </div>
                 </nav>
             </div>

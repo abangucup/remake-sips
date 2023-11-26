@@ -6,7 +6,7 @@
 
         <!-- Website Logo -->
         <div class="logo-header logo-dark">
-          <a href="index.html"><img src="{{ asset('assets/images/truk.png') }}" alt=""></a>
+          <a href="{{ route('home') }}"><img src="{{ asset('assets/images/truk.png') }}" alt=""></a>
         </div>
 
         <!-- Nav Toggle Button -->
@@ -37,14 +37,18 @@
         <!-- Header Nav -->
         <div class="header-nav navbar-collapse collapse " id="navbarNavDropdown">
           <div class="logo-header logo-dark">
-            <a href="index.html"><img src="{{ asset('assets/images/truk.png') }}" alt="" class="w-50"></a>
+            <a href="{{ route('home') }}"><img src="{{ asset('assets/images/truk.png') }}" alt="" class="w-50"></a>
           </div>
           <ul class="nav navbar-nav navbar navbar-left">
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('list.desa') }}">Desa</a></li>
-            <li><a href="{{ route('jenis.kenderaan') }}">Kenderaan</a></li>
-            <li><a href="{{ route('jalur.kenderaan') }}">Jalur Pelayanan</a></li>
-            <li><a href="{{ route('capaian.sampah') }}">Sampah</a></li>
+            <li class="{{ Request::is('/') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
+            <li class="{{ Request::is('desa') || Request::is('desa/*') ? 'active' : '' }}"><a
+                href="{{ route('list.desa') }}">Desa</a></li>
+            <li class="{{ Request::is('kenderaan') || Request::is('kenderaan/*') ? 'active' : '' }}"><a
+                href="{{ route('list.kenderaan') }}">Kenderaan</a></li>
+            <li class="{{ Request::is('jalur') ? 'active' : '' }}"><a href="{{ route('jalur.kenderaan') }}">Jalur
+                Pelayanan</a></li>
+            <li class="{{ Request::is('sampah') ? 'active' : '' }}"><a href="{{ route('capaian.sampah') }}">Sampah</a>
+            </li>
           </ul>
         </div>
       </div>
