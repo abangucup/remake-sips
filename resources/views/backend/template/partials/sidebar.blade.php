@@ -167,8 +167,8 @@
 
             {{-- LEVEL PENGGUNA --}}
             @elseif ($user->role->level == 'pengguna')
-            <li class="mm-{{ Request::is('jenis-kenderaan') ? 'active' : '' }}">
-                <a class="" href="{{ route('jenis-kenderaan.index') }}">
+            <li class="mm-{{ Request::is('tagihan/saya') ? 'active' : '' }}">
+                <a class="" href="{{ route('tagihan.saya') }}">
                     <i class="fa fa-money-check-alt"></i>
                     <span class="nav-text">Data Pembayaran</span>
                 </a>

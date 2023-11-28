@@ -72,6 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
     Route::group(['middleware' => ['role:pengguna'], 'prefix' => 'pelanggan'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboardForPengguna'])->name('pengguna');
+        Route::get('tagihan/saya', [PembayaranController::class, 'tagihanSaya'])->name('tagihan.saya');
     });
 
     // LAPORAN VIEW

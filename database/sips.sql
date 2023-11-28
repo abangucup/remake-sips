@@ -556,7 +556,7 @@ CREATE TABLE `timbangans` (
   PRIMARY KEY (`id`),
   KEY `timbangans_kenderaan_id_foreign` (`kenderaan_id`),
   CONSTRAINT `timbangans_kenderaan_id_foreign` FOREIGN KEY (`kenderaan_id`) REFERENCES `kenderaans` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -565,6 +565,7 @@ CREATE TABLE `timbangans` (
 
 LOCK TABLES `timbangans` WRITE;
 /*!40000 ALTER TABLE `timbangans` DISABLE KEYS */;
+INSERT INTO `timbangans` VALUES (2,2,120,'2023-11-26 14:39:51','2023-11-26 14:39:51'),(3,2,10,'2023-11-26 14:40:03','2023-11-26 14:40:03'),(4,2,1500,'2023-11-27 00:10:58','2023-11-27 00:10:58'),(5,10,50,'2023-11-27 05:10:36','2023-11-27 05:10:36'),(6,10,200,'2023-11-27 05:47:07','2023-11-27 05:47:07');
 /*!40000 ALTER TABLE `timbangans` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -612,4 +613,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-26 13:14:55
+-- Dump completed on 2023-11-27 13:56:49

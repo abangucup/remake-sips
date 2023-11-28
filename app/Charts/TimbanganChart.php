@@ -2,7 +2,6 @@
 
 namespace App\Charts;
 
-use App\Models\Kenderaan;
 use App\Models\Timbangan;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 
@@ -32,6 +31,7 @@ class TimbanganChart
             ->setTitle('Berat sampah per harinya')
             ->setSubtitle('Satuan KG')
             ->addLine('Berat Sampah', $beratSampah)
+            ->setHeight(300)
             ->setXAxis($tanggalArray);
     }
 }

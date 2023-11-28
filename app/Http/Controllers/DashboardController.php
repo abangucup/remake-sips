@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\SampahChart;
+use App\Charts\TimbanganChart;
 use App\Models\Desa;
 use App\Models\Jalur;
 use App\Models\Kenderaan;
 use App\Models\Lokasi;
 use App\Models\Pelanggan;
 use App\Models\Pengelola;
+use App\Models\Sampah;
 use App\Models\Sopir;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,8 +19,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardController extends Controller
 {
-    public function dashboardForAdmin()
+    public function dashboardForAdmin(TimbanganChart $timbanganChart, SampahChart $chart)
     {
+        // $organik = Sampah::where('kategori_id', 2)->pluck('jumlah_sampah', 'id');
+        // dd($organik->values());
         $totalDesa = Desa::count();
         $totalPengelola = Pengelola::count();
         $totalSopir = Sopir::count();
@@ -26,6 +31,8 @@ class DashboardController extends Controller
         $totalPelanggan = Pelanggan::count();
         $totalUser = User::count();
         $totalJalur = Jalur::count();
+        $sampah = $chart->build();
+        $timbangan = $timbanganChart->build();
         return view('backend.admin.dashboard', compact([
             'totalDesa',
             'totalPengelola',
@@ -35,6 +42,8 @@ class DashboardController extends Controller
             'totalPelanggan',
             'totalUser',
             'totalJalur',
+            'sampah',
+            'timbangan'
         ]));
     }
 
@@ -45,7 +54,6 @@ class DashboardController extends Controller
         $totalSopir = Sopir::count();
         $totalKenderaan = Kenderaan::count();
         $totalLokasi = Lokasi::count();
-        // $totalPelanggan = Pelanggan::count();
         $totalPelanggan = Pelanggan::with('lokasi.desa')
             ->whereHas('lokasi.desa', function ($query) {
                 $query->where('id', auth()->user()->pengelola->desa_id);

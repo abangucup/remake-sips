@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\SampahChart;
 use App\Charts\TimbanganChart;
 use App\Models\Desa;
 use App\Models\Jalur;
@@ -51,13 +52,14 @@ class FrontendController extends Controller
         return view('frontend.detail-desa', compact('desa', 'lokasis'));
     }
 
-    public function capaianSampah(TimbanganChart $chart)
+    public function capaianSampah(TimbanganChart $chart, SampahChart $sampahChart)
     {
         $kategoris = Kategori::all();
 
         return view('frontend.sampah', [
             'kategoris' => $kategoris,
             'chart' => $chart->build(),
+            'sampah' => $sampahChart->build(),
         ]);
     }
 }

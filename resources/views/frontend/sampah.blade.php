@@ -63,6 +63,15 @@
             </div>
             @endforeach
         </div>
+        <div class="row d-flext justify-content-center">
+            <div class="col-xl-12 col-sm-6">
+                <div class="product-bx wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="product-content">
+                        {!! $sampah->container() !!}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -70,4 +79,6 @@
 @push('script')
 <script src="{{ $chart->cdn() }}"></script>
 {!! $chart->script() !!}
+<script src="{{ $sampah->cdn() }}"></script>
+{!! $sampah->script() !!}
 @endpush
