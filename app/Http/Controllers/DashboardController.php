@@ -21,8 +21,6 @@ class DashboardController extends Controller
 {
     public function dashboardForAdmin(TimbanganChart $timbanganChart, SampahChart $chart)
     {
-        // $organik = Sampah::where('kategori_id', 2)->pluck('jumlah_sampah', 'id');
-        // dd($organik->values());
         $totalDesa = Desa::count();
         $totalPengelola = Pengelola::count();
         $totalSopir = Sopir::count();

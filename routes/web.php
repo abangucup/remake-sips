@@ -73,6 +73,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:pengguna'], 'prefix' => 'pelanggan'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboardForPengguna'])->name('pengguna');
         Route::get('tagihan/saya', [PembayaranController::class, 'tagihanSaya'])->name('tagihan.saya');
+        Route::post('tagihan/saya/bayar', [PembayaranController::class, 'bayarTagihanSaya'])->name('tagihan.bayar');
+        Route::delete('tagihan/saya/{pembayaran}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
     });
 
     // LAPORAN VIEW
