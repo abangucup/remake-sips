@@ -169,8 +169,6 @@
             <div class="testimonial-swiper swiper m-b30 swiper-btn-lr style-1">
                 <div class="swiper-wrapper">
                     @foreach ($pelanggans as $pelanggan)
-
-                    @endforeach
                     <div class="swiper-slide">
                         <div class="testimonial-1 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="dz-media">
@@ -204,6 +202,7 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
             <div class="swiper-btn">
