@@ -17,4 +17,9 @@ class Kategori extends Model
     {
         return $this->hasMany(Sampah::class);
     }
+
+    public function getJumlahSampahAttribute()
+    {
+        $this->sampahs()->sum('jumlah_sampah');
+    }
 }

@@ -128,7 +128,7 @@
                     <?php echo "Gorontalo, " . date("j F Y"); ?>
                 </div>
 
-                <p>Admin Kantor</p><br><br><br>
+                <p>{{ auth()->user()->role->name }}</p><br><br><br>
                 <p><b><u>{{ auth()->user()->biodata->nama_lengkap }}</u></b></p>
             </td>
         </tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Jalur;
 use App\Models\Jenis;
 use App\Models\Kenderaan;
+use App\Models\Pelanggan;
 use App\Models\Pembayaran;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -30,12 +31,14 @@ class LaporanController extends Controller
     public function laporanJalur()
     {
         $user = auth()->user();
+
         if ($user->role->level == 'sopir') {
             $kenderaan = Kenderaan::where('id', $user->sopir->kenderaan_id)->first();
             return view('backend.laporan.laporan_jalur', compact('kenderaan'));
         } else {
             $kenderaans = Kenderaan::whereHas('lokasis')->get();
         }
+
         return view('backend.laporan.laporan_jalur', compact('kenderaans'));
     }
 

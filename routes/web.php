@@ -64,7 +64,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => ['role:pengelola'], 'prefix' => 'pengelola'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboardForPengelola'])->name('pengelola');
         Route::resource('pelanggan', PelangganController::class);
-        Route::get('pembayaran', [PembayaranController::class, 'bayar'])->name('bayar');
+        Route::get('pembayaran', [PembayaranController::class, 'index'])->name('pembayaran.index');
+        Route::post('pembayaran', [PembayaranController::class, 'store'])->name('pembayaran.store');
+        Route::put('pembayaran/{pembayaran}', [PembayaranController::class, 'update'])->name('pembayaran.update');
+        Route::delete('pembayaran/{pembayaran}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
     });
     Route::group(['middleware' => ['role:sopir'], 'prefix' => 'sopir'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboardForSopir'])->name('sopir');
@@ -74,7 +77,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('dashboard', [DashboardController::class, 'dashboardForPengguna'])->name('pengguna');
         Route::get('tagihan/saya', [PembayaranController::class, 'tagihanSaya'])->name('tagihan.saya');
         Route::post('tagihan/saya/bayar', [PembayaranController::class, 'bayarTagihanSaya'])->name('tagihan.bayar');
-        Route::delete('tagihan/saya/{pembayaran}', [PembayaranController::class, 'destroy'])->name('pembayaran.destroy');
+        Route::delete('tagihan/saya/{pembayaran}', [PembayaranController::class, 'destroy'])->name('tagihan.destroy');
     });
 
     // LAPORAN VIEW

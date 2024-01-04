@@ -15,9 +15,8 @@
 </div>
 
 <div class="row">
-    {{-- @if (\Carbon\Carbon::parse($tagihan->tanggal_bayar)->isoFormat('MMMM') ==
-    \Carbon\Carbon::parse(now())->isoFormat('MMMM')) --}}
-    @if (!$tagihan)
+    @if ($tagihan && \Carbon\Carbon::parse($tagihan->tanggal_bayar)->isoFormat('MMMM') !==
+    \Carbon\Carbon::parse(now())->isoFormat('MMMM'))
     <div class="col-xl-4">
         <div class="card">
             <div class="card-header">
@@ -35,7 +34,7 @@
                         <div class="mb-3 col-md-12">
                             <label class="form-label">Tanggal</label>
                             <input type="text" class="form-control" placeholder="Tanggal" name="tanggal_bayar"
-                                value="{{ \Carbon\Carbon::parse(now())->isoFormat('LL') }}" readonly>
+                                value="{{  \Carbon\Carbon::now()->isoFormat('LLLL') }}" readonly>
                         </div>
                         <div class="mb-3 col-md-12">
                             <label class="form-label">Tagihan</label>
@@ -55,7 +54,8 @@
         </div>
     </div>
     @endif
-    <div class="col-xl-{{ !$tagihan ? '8' : '12' }}">
+    <div class="col-xl-{{ $tagihan && \Carbon\Carbon::parse($tagihan->tanggal_bayar)->isoFormat('MMMM') !==
+        \Carbon\Carbon::parse(now())->isoFormat('MMMM') ? '8' : '12' }}">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Pembayaran Saya</h4>

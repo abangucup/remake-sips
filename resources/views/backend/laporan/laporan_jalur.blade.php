@@ -33,7 +33,7 @@
                                     <label class="form-label">Tampilan Cetak</label>
                                     <select name="tampilan" class="default-select form-control" required>
                                         <option value="">-- Pilih Hasil Tampilan Cetak --</option>
-                                        <option value="jenis">Berdarakan Jenis Kenderaan</option>
+                                        {{-- <option value="jenis">Berdarakan Jenis Kenderaan</option> --}}
                                         <option value="hari">Berdasarkan Hari</option>
                                         <option value="tabel">Sesuaikan Dengan Tabel</option>
                                     </select>
@@ -69,7 +69,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    @if (auth()->user()->role->level === 'admin')
+                    @if (auth()->user()->role->level === 'admin' || auth()->user()->role->level === 'pengguna')
                     <table id="example" class="table table-striped" style="width: 100%">
                         <thead>
                             <tr>
@@ -158,6 +158,41 @@
                         </tfoot>
                     </table>
 
+                    {{-- @elseif (auth()->user()->role->level === 'pengguna')
+                    <table id="example" class="display" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Jalur</th>
+                                <th>Nama Kenderaan</th>
+                                <th>Hari</th>
+                                <th>Sopir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($jalurPelanggan as $jalur)
+
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $jalur->lokasi->nama_lokasi }}</td>
+                                <td>{{ $jalur->kenderaan->nama_kenderaan ?? 'belum ada kenderaan' }}</td>
+                                <td>{{ $jalur->hari ?? 'belum ada jadwal' }}</td>
+                                <td>{{ $jalur->kenderaan->sopir->user->biodata->nama_lengkap ?? 'belum ada sopir' }}
+                                </td>
+                            </tr>
+                            @endforeach
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Jalur</th>
+                                <th>Hari</th>
+                                <th>Nama Kenderaan</th>
+                                <th>Sopir</th>
+                            </tr>
+                        </tfoot>
+                    </table> --}}
                     @endif
                 </div>
             </div>

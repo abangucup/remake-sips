@@ -9,7 +9,7 @@
 
             </li>
 
-            @if ($user->role->level == 'admin')
+            @if ($user->role->level === 'admin')
             {{-- TABEL MASTER --}}
             <li>
                 <a class="mt-3">Master Data</a>
@@ -110,15 +110,15 @@
             </li> --}}
 
             {{-- LEVEL PENGELOLA --}}
-            @elseif ($user->role->level == 'pengelola')
+            @elseif ($user->role->level === 'pengelola')
             <li class="mm-{{ Request::is('pelanggan') ? 'active' : '' }}">
                 <a class="" href="{{ route('pelanggan.index') }}">
                     <i class="fa fa-users"></i>
                     <span class="nav-text">Data Masyarakat</span>
                 </a>
             </li>
-            <li class="mm-{{ Request::is('jenis-kenderaan') ? 'active' : '' }}">
-                <a class="" href="{{ route('jenis-kenderaan.index') }}">
+            <li class="mm-{{ Request::is('pembayaran') ? 'active' : '' }}">
+                <a class="" href="{{ route('pembayaran.index') }}">
                     <i class="fa fa-money-check-alt"></i>
                     <span class="nav-text">Data Pembayaran</span>
                 </a>
@@ -147,7 +147,7 @@
             </li>
 
             {{-- LEVEL SOPIR --}}
-            @elseif ($user->role->level == 'sopir')
+            @elseif ($user->role->level === 'sopir')
             <li class="mm-{{ Request::is('timbangan') ? 'active' : '' }}">
                 <a class="" href="{{ route('timbangan.index') }}">
                     <i class="fa fa-balance-scale"></i>
@@ -166,7 +166,7 @@
             </li>
 
             {{-- LEVEL PENGGUNA --}}
-            @elseif ($user->role->level == 'pengguna')
+            @elseif ($user->role->level === 'pengguna')
             <li class="mm-{{ Request::is('tagihan/saya') ? 'active' : '' }}">
                 <a class="" href="{{ route('tagihan.saya') }}">
                     <i class="fa fa-money-check-alt"></i>

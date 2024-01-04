@@ -58,27 +58,23 @@
    </p>
    <br>
    @foreach ($jalurByHari as $hari => $jalurKenderaan)
-   <div class="list-group mb-2">
-      <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-         <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{ $hari }}</h5>
-         </div>
-         <ul class="list-group">
-            @foreach ($jalurKenderaan->unique('kenderaan.nomor_polisi') as $jalur)
-            <li class="list-group-item">
-               <h6>Kenderaan: {{ $jalur->kenderaan->nama_kenderaan }} - {{
-                  $jalur->kenderaan->nomor_polisi }}</h6>
-               <h6>Lokasi :</h6>
-               <ul class="list-group">
-                  @foreach ($jalur->kenderaan->lokasis->unique('nama_lokasi') as $lokasi)
-                  <li class="list-group-item">{{ $loop->iteration.'. '. $lokasi->nama_lokasi }}</li>
-                  @endforeach
-               </ul>
-            </li>
+   <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><u>{{ $hari }}</u></h5>
+   </div>
+   <ul>
+      @foreach ($jalurKenderaan->unique('kenderaan.nomor_polisi') as $jalur)
+      <li>
+         <h6>Kenderaan: {{ $jalur->kenderaan->nama_kenderaan }} - {{
+            $jalur->kenderaan->nomor_polisi }}</h6>
+         <h6>Lokasi :</h6>
+         <ul>
+            @foreach ($jalur->kenderaan->lokasis->unique('nama_lokasi') as $lokasi)
+            {{ $loop->iteration.'. '. $lokasi->nama_lokasi }} <br>
             @endforeach
          </ul>
-      </a>
-   </div>
+      </li>
+      @endforeach
+   </ul>
    @endforeach
 
    <p>
@@ -95,7 +91,7 @@
                <?php echo "Gorontalo, " . date("j F Y"); ?>
             </div>
 
-            <p>Admin Kantor</p><br><br><br>
+            <p>{{ auth()->user()->role->name }}</p><br><br><br>
             <p><b><u>{{ auth()->user()->biodata->nama_lengkap }}</u></b></p>
          </td>
       </tr>

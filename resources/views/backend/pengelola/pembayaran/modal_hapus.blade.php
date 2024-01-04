@@ -3,7 +3,7 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <form action="{{ route('tagihan.destroy', $pembayaran->id) }}" method="post">
+            <form action="{{ route('pembayaran.destroy', $pembayaran->id) }}" method="post">
                 @csrf
                 @method('DELETE')
                 <div class="modal-header">
