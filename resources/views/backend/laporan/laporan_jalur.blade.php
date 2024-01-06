@@ -69,7 +69,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    @if (auth()->user()->role->level === 'admin' || auth()->user()->role->level === 'pengguna')
+                    @if (auth()->user()->role->level !== 'sopir')
                     <table id="example" class="table table-striped" style="width: 100%">
                         <thead>
                             <tr>

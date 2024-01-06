@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pelanggan_id')->constrained()->onDelete('cascade');
-            $table->string('tanggal_bayar');
+            $table->date('tanggal_bayar');
             $table->enum('status_bayar', ['lunas', 'pending']);
             $table->timestamps();
         });

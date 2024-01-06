@@ -133,12 +133,12 @@
                     <span class="nav-text">Jalur Pengangkutan</span>
                 </a>
             </li>
-            <li class="mm-{{ Request::is('laporan/jalur') ? 'active' : '' }}">
-                <a class="" href="{{ route('laporan.jalur') }}">
+            {{-- <li class="mm-{{ Request::is('laporan/sampah') ? 'active' : '' }}">
+                <a class="" href="{{ route('laporan.sampah') }}">
                     <i class="fa fa-trash-alt"></i>
                     <span class="nav-text">Sampah</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="mm-{{ Request::is('laporan/pembayaran') ? 'active' : '' }}">
                 <a class="" href="{{ route('laporan.pembayaran') }}">
                     <i class="fa fa-money-bill-wave"></i>

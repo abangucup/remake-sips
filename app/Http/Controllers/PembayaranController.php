@@ -26,28 +26,45 @@ class PembayaranController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->all());
     }
+
+    public function update(Pembayaran $pembayaran)
+    {
+        $pembayaran->update([
+            'status_bayar' => 'lunas',
+        ]);
+
+        Alert::success('Pembayaran success', 'tagihan telah dibayarkan');
+        return redirect()->back();
+    }
+
 
     public function tagihanSaya()
     {
         $pembayarans = Pembayaran::where('pelanggan_id', Auth::user()->pelanggan->id)->get();
         $tagihan = Pembayaran::where('pelanggan_id', Auth::user()->pelanggan->id)
             ->where('status_bayar', 'pending')->latest()->first();
-
+        // dd($tagihan->tanggal_bayar);
         // dd(Carbon::parse($tagihan->tanggal_bayar)->isoFormat('MMM'));
-        $pelanggan = Pelanggan::findOrFail(Auth::user()->pelanggan->id);
+        $pelanggan = Pelanggan::where('id', Auth::user()->pelanggan->id)->with('pembayarans')->first();
+
+        // dd($pelanggan->pembayarans->isEmpty() || ($tagihan &&
+        //     \Carbon\Carbon::parse($tagihan->tanggal_bayar)->isoFormat('MMMM') !==
+        //     \Carbon\Carbon::parse(now())->isoFormat('MMMM')));
         return view('backend.pelanggan.pembayaran.index', compact('pembayarans', 'pelanggan', 'tagihan'));
     }
 
     public function bayarTagihanSaya(Request $request)
     {
         // dd(Carbon::parse($request->tanggal_bayar)->format('Y-m-d'));
-        $tanggal_bayar = Carbon::parse($request->tanggal_bayar)->format('Y-m-d');
-        dd($tanggal_bayar);
+        $tanggal_bayar = date(now());
+        // dd(date(now()));
+        // dd($tanggal_bayar);
+        // dd($tanggal_bayar);
         // dd($request->tanggal_bayar);
         $validasi = Validator::make($request->all(), [
             'no_register' => 'required',
-            'tanggal_bayar' => 'required',
         ]);
 
         if ($validasi->fails()) {
@@ -58,7 +75,7 @@ class PembayaranController extends Controller
         $pelanggan = Pelanggan::where('no_register', $request->no_register)->first();
 
         $pembayaran = new Pembayaran();
-        $pembayaran->tanggal_bayar = $request->tanggal_bayar;
+        $pembayaran->tanggal_bayar = $tanggal_bayar;
         $pembayaran->pelanggan_id = $pelanggan->id;
         $pembayaran->status_bayar = 'pending';
         $pembayaran->save();
