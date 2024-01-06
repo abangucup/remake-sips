@@ -45,7 +45,7 @@ class DashboardController extends Controller
         ]));
     }
 
-    public function dashboardForPengelola()
+    public function dashboardForPengelola(TimbanganChart $timbanganChart, SampahChart $chart)
     {
         $totalDesa = Desa::count();
         $totalPengelola = Pengelola::where('desa_id', auth()->user()->pengelola->desa_id)->count();
@@ -58,6 +58,8 @@ class DashboardController extends Controller
             })->count();
         $totalUser = User::count();
         $totalJalur = Jalur::count();
+        $sampah = $chart->build();
+        $timbangan = $timbanganChart->build();
         return view('backend.pengelola.dashboard', compact([
             'totalDesa',
             'totalPengelola',
@@ -67,10 +69,12 @@ class DashboardController extends Controller
             'totalPelanggan',
             'totalUser',
             'totalJalur',
+            'sampah',
+            'timbangan'
         ]));
     }
 
-    public function dashboardForSopir()
+    public function dashboardForSopir(TimbanganChart $timbanganChart, SampahChart $chart)
     {
         $totalDesa = Desa::count();
         $totalPengelola = Pengelola::count();
@@ -80,6 +84,8 @@ class DashboardController extends Controller
         $totalPelanggan = Pelanggan::count();
         $totalUser = User::count();
         $totalJalur = Jalur::count();
+        $sampah = $chart->build();
+        $timbangan = $timbanganChart->build();
         return view('backend.sopir.dashboard', compact([
             'totalDesa',
             'totalPengelola',
@@ -89,10 +95,12 @@ class DashboardController extends Controller
             'totalPelanggan',
             'totalUser',
             'totalJalur',
+            'sampah',
+            'timbangan'
         ]));
     }
 
-    public function dashboardForPengguna()
+    public function dashboardForPengguna(TimbanganChart $timbanganChart, SampahChart $chart)
     {
         if (Auth::user()->pelanggan->lokasi_id == null) {
             Alert::info('Perhatian', 'Lengkapi biodata anda');
@@ -106,6 +114,8 @@ class DashboardController extends Controller
         $totalPelanggan = Pelanggan::count();
         $totalUser = User::count();
         $totalJalur = Jalur::count();
+        $sampah = $chart->build();
+        $timbangan = $timbanganChart->build();
         return view('backend.pelanggan.dashboard', compact([
             'totalDesa',
             'totalPengelola',
@@ -115,6 +125,8 @@ class DashboardController extends Controller
             'totalPelanggan',
             'totalUser',
             'totalJalur',
+            'sampah',
+            'timbangan'
         ]));
     }
 }

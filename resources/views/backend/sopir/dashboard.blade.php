@@ -148,5 +148,28 @@
             </div>
         </div>
     </div>
+    <div class="col-xl-12 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
+        <div class="widget-stat card">
+            <div class="card-body p-4">
+                {!! $sampah->container() !!}
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-12 col-xxl-3 col-lg-6 col-md-6 col-sm-6">
+        <div class="widget-stat card">
+            <div class="card-body p-4">
+                {!! $timbangan->container() !!}
+
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
+
+@push('script')
+<script src="{{ $sampah->cdn() }}"></script>
+{!! $sampah->script() !!}
+<script src="{{ $timbangan->cdn() }}"></script>
+{!! $timbangan->script() !!}
+@endpush
